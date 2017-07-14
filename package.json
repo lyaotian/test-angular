@@ -6,8 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --inline --progress --host 0.0.0.0 --port 4201",
     "test": "karma start",
-    "build": "rimraf aot dist && npm run aot && webpack --config config/webpack.prod_aot.js --progress --profile --bail",
-    "build:jit": "rimraf dist && webpack --config config/webpack.prod_jit.js --progress --profile --bail",
+    "build": "rimraf aot dist && npm run aot && webpack --config config/webpack.prod_aot.js --progress --profile --bail -p",
+    "build:jit": "rimraf dist && webpack --config config/webpack.prod_jit.js --progress --profile --bail -p",
     "aot": "ngc -p tsconfig-aot.json"
   },
   "keywords": [],
