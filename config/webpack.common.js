@@ -11,6 +11,10 @@ module.exports = {
   },
 
   resolve: {
+    modules: [
+      'node_modules',
+      helpers.root('src')
+    ],
     extensions: ['.ts', '.js']
   },
 

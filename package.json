@@ -6,7 +6,9 @@
   "scripts": {
     "start": "webpack-dev-server --inline --progress --host 0.0.0.0 --port 4201",
     "test": "karma start",
-    "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail"
+    "build": "rimraf aot dist && npm run aot && webpack --config config/webpack.prod_aot.js --progress --profile --bail",
+    "build:jit": "rimraf dist && webpack --config config/webpack.prod_jit.js --progress --profile --bail",
+    "aot": "ngc -p tsconfig-aot.json"
   },
   "keywords": [],
   "author": "",
@@ -21,17 +23,19 @@
     "@angular/platform-browser-dynamic": "^4.2.6",
     "@angular/router": "^4.2.6",
     "core-js": "^2.4.1",
-    "file-loader": "^0.11.2",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.12"
   },
   "devDependencies": {
+    "@angular/compiler-cli": "^4.2.6",
     "@types/jasmine": "2.5.36",
     "@types/node": "^8.0.10",
     "angular2-template-loader": "^0.6.2",
     "awesome-typescript-loader": "^3.2.1",
+    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.4",
     "extract-text-webpack-plugin": "^2.0.0",
+    "file-loader": "^0.11.2",
     "html-loader": "^0.4.5",
     "html-webpack-plugin": "^2.29.0",
     "jasmine-core": "^2.4.1",
