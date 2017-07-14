@@ -18,8 +18,14 @@ module.exports = webpackMerge(commonConfig, {
   ],
 
   devServer: {
+    contentBase: './src',
+    port: 9000,
+    inline: true,
     historyApiFallback: true,
-    stats: 'minimal',
-    disableHostCheck: true
+    stats: 'errors-only',
+    watchOptions: {
+      aggregateTimeout: 300,
+      poll: 500
+    }
   }
 });
